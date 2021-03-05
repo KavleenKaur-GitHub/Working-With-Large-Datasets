@@ -1,0 +1,13 @@
+import csv
+from datetime import datetime
+count=1
+with open('trip_data_6.csv') as f:
+    reader=csv.reader(f)
+    line=f.read().splitlines()
+    fieldnames=line[0]
+    names=fieldnames.split(",")
+    print("NUMBER| FIELD NAME")
+    for fields in names:
+        print(" " " " " " " " " " "{}|{}".format(count,fields))
+        count=count+1
+        
