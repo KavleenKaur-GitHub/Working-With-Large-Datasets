@@ -1,0 +1,8 @@
+import csv
+from itertools import islice
+count=0
+with open('trip_data_6.csv') as f:
+    reader=csv.reader(f)
+    for i in range(10):
+        line=f.readline()
+        print(line)
