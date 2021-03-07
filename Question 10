@@ -1,0 +1,48 @@
+import csv
+import matplotlib.pyplot as plt
+passenger_count=[]
+count=0
+count3=1
+count2=1
+sum=0
+value=0
+average=[]
+hour=[]
+sec=3600
+dict={}
+average_number_of_passenger=[]
+trip_in_sec=[]
+trip_in_hour=[]
+with open('trip_data_6.csv',) as f:
+    reader=csv.reader(f)
+    for i,line in enumerate(reader):
+        if(count>=1):
+            if(count%1000==0):
+                passenger_count.append(line[3])
+                trip_in_sec.append(line[8])
+        count=count+1
+    #print(len(passenger_count))       
+    passenger_count =[int(i) for i in passenger_count[1:]]
+    trip_in_sec =[int(i) for i in trip_in_sec[1:]]
+    for x in trip_in_sec[1:]:
+        value=trip_in_sec[count3]/sec
+        trip_in_hour.append(value)
+        count3=count3+1
+    #print(len(passenger_count))
+    hour=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+    for x in range(1,len(passenger_count[1:])):
+        try:
+            value=passenger_count[count2]/trip_in_hour[count2]
+        except:ZeroDivisionError
+        sum=sum+value
+        count2=count2+1
+    print(sum)   
+    for i in hour:
+        average.append((sum/len(passenger_count[1:]))*i)
+    print(average)
+    plt.plot(hour,average,color='red', marker='o')
+    plt.title('average number of passenger per hour', fontsize=12)
+    plt.xlabel('hour', fontsize=14)
+    plt.ylabel('number of passenger', fontsize=14)
+    plt.grid(True)
+    plt.show()
