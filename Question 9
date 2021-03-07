@@ -1,0 +1,12 @@
+import csv
+import matplotlib.pyplot as plt
+passenger_count=[]
+count=0
+with open('trip_data_6.csv',) as f:
+    reader=csv.reader(f)
+    for i,line in enumerate(reader):
+        if(count>=1):
+            if(count%1000==0):
+                passenger_count.append(line[3])
+        count=count+1
+    print(len(passenger_count))    
