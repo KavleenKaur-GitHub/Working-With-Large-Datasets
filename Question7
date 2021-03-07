@@ -1,0 +1,66 @@
+import csv
+count=1
+id1=0  
+rate_code=[]
+passenger_count=[]
+trip_distance=[] #float
+trip_in_sec=[]
+with open('trip_data_6.csv') as f:
+    reader=csv.reader(f)
+    for i,line in enumerate(reader):
+        rate_code.append(line[3])
+        passenger_count.append(line[7])
+        trip_distance.append(line[9])
+        trip_in_sec.append(line[8]
+    rate_code =[int(i) for i in rate_code[1:]]
+    passenger_count=[int(i) for i in passenger_count[1:]]
+    trip_in_sec=[int(i) for i in trip_in_sec[1:]]
+    trip_distance=[float(i) for i in trip_distance[1:]]
+    minrate=rate_code[0]
+    maxrate=rate_code[0]
+    minpasct=passenger_count[0] 
+    maxpasct=passenger_count[0]
+    mintriptime=trip_in_sec[0]
+    maxtriptime=trip_in_sec[0] 
+    mintripdis=trip_distance[0] 
+    maxtripdis=trip_distance[0]                       
+    for x in rate_code[1:]:
+        if(minrate > rate_code[count]& minrate!=0):
+            minrate=rate_code[count]
+            id1=count
+        if(maxrate < rate_code[count]):
+            maxrate=rate_code[count]
+            id2=count
+        count=count+1
+    print(minrate)
+    print(maxrate)
+    for x in passenger_count[1:]:
+       if(minpasct > passenger_count[count1]& minpasct!=0):
+            minpasct=passenger_count[count1]
+            id1=count1
+        if(maxpasct < passenger_count[count1]):
+            maxpasct=passenger_count[count1]
+            id2=count1
+        count1=count1+1
+    print(minpasct)
+    print(maxpasct)    
+    for x in trip_in_sec[1:]:
+        if(mintriptime > trip_in_sec[count3]& minrate!=0):
+            mintriptime=trip_in_sec[count3]
+            id1=count3
+        if(maxtriptime < trip_in_sec[count3]):
+            maxtriptime=trip_in_sec[count3]
+            id2=count3
+        count=count+1
+    print(mintriptime)
+    print(maxtriptime)
+   for x in trip_distance[1:]:
+        if(mintripdis > trip_distance[count4]& minrate!=0):
+           mintripdis=trip_distance[count4]
+            id1=count4
+        if(maxtripdis < trip_distance[count4]):
+            maxtripdis=trip_distance[count4]
+            id2=count4
+        count4=count4+1
+    print(mintripdis)
+    print(maxtripdis)
