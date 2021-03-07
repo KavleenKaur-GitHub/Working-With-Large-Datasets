@@ -1,0 +1,129 @@
+import csv
+count=1
+id1=0
+id2=0
+id3=0
+id4=0
+id5=0
+id6=0
+id7=0
+id8=0
+count2=1
+count3=1
+count4=1
+picklat=[]
+picklong=[]
+droplat=[]
+droplong=[]
+with open('trip_data_6.csv') as f:
+    reader=csv.reader(f)
+    for i,line in enumerate(reader):
+        picklat.append(line[11])
+        picklong.append(line[10]) 
+        droplat.append(line[13])
+        droplong.append(line[12])
+    picklat = [float(i) for i in picklat[1:]]
+    picklong = [float(i) for i in picklong[1:]]
+    droplat = [float(i) for i in droplat[1:]]
+    droplong = [float(i) for i in droplong[1:]]
+    minpicklat=picklat[0]
+    maxpicklat=picklat[0]
+    minpicklong=picklong[0]
+    maxpicklong=picklong[0]
+    mindroplat=droplat[0]
+    maxdroplat=droplat[0]
+    mindroplong=droplong[0]
+    maxdroplong=droplong[0]
+    for x in picklat[1:]:
+        if(minpicklat > picklat[count]):
+            minpicklat=picklat[count]
+            id1=count
+        if(maxpicklat < picklat[count]):
+            maxpicklat=picklat[count]
+            id2=count
+        count=count+1
+    print(id1)
+    print(id2)
+    for value in picklong[1:]:
+        if(minpicklong > picklong[count2]):
+            minpicklong=picklong[count2]
+            id3=count2
+        if(maxpicklong < picklong[count2]):
+            maxpicklong=picklong[count2]
+            id4=count2
+        count2=count2+1
+    print(id3)
+    print(id4)
+    for x in droplat[1:]:
+        if(mindroplat > droplat[count3]):
+            mindroplat=droplat[count3]
+            id5=count3
+        if(maxdroplat < droplat[count3]):
+            maxpicklat=picklat[count3]
+            id6=count3
+        count3=count3+1
+    print(id5)
+    print(id6)
+    for value in droplong[1:]:
+        if(mindroplong > droplong[count4]):
+            mindroplong=droplong[count4]
+            id7=count4
+        if(maxdroplong < droplong[count4]):
+            maxdroplong=droplong[count4]
+            id8=count4
+        count4=count4+1
+    print(id7)
+    print(id8)
+f.close()
+with open('trip_data_6.csv') as f:
+    reader=csv.reader(f)
+    line=f.read().splitlines()
+    max_pickup_lattitude=line[4752898].split(",")[12]
+    max_pickup_longitude=line[4752898].split(",")[13]
+    print(max_pickup_lattitude) #max lattitude
+    print(max_pickup_longitude)
+    min_pickup_lattitude=line[14310378].split(",")[12]
+    min_pickup_longitude=line[14310378].split(",")[13]
+    print(min_pickup_lattitude) #min lattitude
+    print(min_pickup_longitude)
+    min_pickup=[min_pickup_lattitude,min_pickup_longitude]
+    max_pickup=[max_pickup_lattitude,max_pickup_longitude]
+    plt.plot(min_pickup,max_pickup,color='red', marker='o')
+    plt.title('GEOGRAPHICAL RANGE OF PICK_UP LATTITUDE', fontsize=12)
+    plt.xlabel('MIN', fontsize=14)
+    plt.ylabel('MAX', fontsize=14)
+    plt.grid(True)
+    plt.show()
+    max_pickup_longitude=line[2629582].split(",")[12]#main
+    max_pickup_longitude=line[2629582].split(",")[13]
+    print(max_pickup_lattitude) #max longitude
+    print(max_pickup_longitude)
+    min_pickup_lattitude=line[12171748].split(",")[12]
+    min_pickup_longitude=line[12171748].split(",")[13]
+    print(min_pickup_lattitude) #min longitude
+    print(min_pickup_longitude)
+    min_pickup=[min_pickup_lattitude,min_pickup_longitude]
+    max_pickup=[max_pickup_lattitude,max_pickup_longitude]
+    plt.plot(min_pickup,max_pickup,color='red', marker='o')
+    plt.title('GEOGRAPHICAL RANGE OF PICK_UP LONGITUDE', fontsize=12)
+    plt.xlabel('MIN', fontsize=14)
+    plt.ylabel('MAX', fontsize=14)
+    plt.grid(True)
+    plt.show()
+    min_dropoff=[40.560763,-73.920471]
+    max_dropoff=[41.084076,-74.155197]
+    plt.plot(min_dropoff,max_dropoff,color='red', marker='o')
+    plt.title('GEOGRAPHICAL RANGE OF DROP_OFF LATTITUDE', fontsize=12)
+    plt.xlabel('MIN', fontsize=14)
+    plt.ylabel('MAX', fontsize=14)
+    plt.grid(True)
+    plt.show()
+    min_dropoff=[40.908452,-74.405731]
+    max_dropoff=[40.649765,-73.460228]
+    plt.plot(min_dropoff,max_dropoff,color='red', marker='o')
+    plt.title('GEOGRAPHICAL RANGE OF DROP_OFF LONGITUDE', fontsize=12)
+    plt.xlabel('MIN', fontsize=14)
+    plt.ylabel('MAX', fontsize=14)
+    plt.grid(True)
+    plt.show()
+    
