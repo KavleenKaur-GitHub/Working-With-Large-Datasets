@@ -334,3 +334,196 @@ Now, we use pyplot to plot a graph. the color attribute soecifies the color of t
 ![GEOGRAPHICAL RANGE OF PICK_UP LONGITUDE](https://user-images.githubusercontent.com/38343820/110370119-4dcef280-8071-11eb-920a-95ea0d620ade.png)
 ![GEOGRAPHICAL RANGE OF DROP_OFF Lattitude](https://user-images.githubusercontent.com/38343820/110370151-57f0f100-8071-11eb-9117-4e9915a91582.png)
 ![GEOGRAPHICAL RANGE OF DROPOFF LONGITUDE](https://user-images.githubusercontent.com/38343820/110370167-5b847800-8071-11eb-9bd2-c96ca3c37c96.png)
+
+# SIXTH QUESTION:
+
+In this particular question, we have to find out the unique values in each field.
+
+###  STEP-1:
+INITIATE AN EMPTY LIST OF ALL THE COLUMNS AND THEN APPEND ALL THE VALUES IN THE LIST.
+
+```python
+ medallion.append(line[0])
+        hack_license.append(line[1])
+        vendor_id.append(line[2])
+        rate_code.apppend(line[3])
+        store_and_fwd_flag.apppend(line[4])
+        pickup_datetime.apppend(line[5])
+        dropoff_datetime.apppend(line[6])
+        passenger_count.apppend(line[7])
+        trip_time_in_sec.apppend(line[8])
+        trip_distance.apppend(line[9])
+        pick_up_longitude.apppend(line[10])
+        pick_up_lattitude.apppend(line[11])
+        dropoff_longitude.apppend(line[12])
+        dropoff_lattitude.apppend(line[13])
+```
+# ***STEP -2***
+ACCORDING TO THE WEBSITE, WE KNOW THAT TO GET UNIQUE VALUES, WE HAVE TO USE SET FUNCTION AND FUNCTION IS VERY QUICK AND WAS VERY HELPFUL IN SOLVINH THIS QUERY.
+
+
+[WEBSITE FOR INFORMATION][https://www.geeksforgeeks.org/python-get-unique-values-list/]
+
+
+### SO, WE CAN USE SET FUNCTION TO FIND UNIQUE VALUES
+```python
+unique_word_rate_code=set(rate_code[1:])
+    print(unique_word_rate_code)
+    unique_words_medallion = set(medallion[1:])
+    print(unique_words_medallion)
+    unique_words_hack_license = set(hack_license[1:])
+    print(unique_words_hack_license)
+    unique_word_vendor_id=set(vendor_id[1:])
+    print(unique_word_vendor_id)
+    unique_word_store_and_fwd_flag=set(store_and_fwd_flag[1:])
+    print(unique_word_store_and_fwd_flag)
+    unique_word_ pickup_datetime=set(pickup_datetime[1:])
+    print(unique_word_pickup_datetime)
+    unique_word_dropoff_datetime=set(dropoff_datetime[1:])
+    print(unique_word_dropoff_datetime)
+    unique_word_passenger_count=set(passenger_count[1:])
+    print(unique_word_passenger_count)
+    unique_word_trip_time_in_sec=set(trip_time_in_sec[1:])
+    print(unique_word_trip_time_in_sec)
+    unique_word_trip_distance=set(trip_distance[1:])
+    print(unique_word_trip_distance)
+    unique_word_pick_up_longitude=set(pick_up_longitude[1:])
+    print(unique_word_pick_up_longitude)
+    unique_word_pick_up_lattitude=set(pick_up_lattitude[1:])
+    print(unique_word_pick_up_lattitude)
+    unique_word_ dropoff_lattitude=set( dropoff_lattitude[1:])
+    print(unique_word_dropoff_lattitude)
+    unique_word_dropoff_longitude=set(dropoff_longitude[1:])
+    print(unique_word_dropoff_longitude)
+```
+### IN THIS CODE, WE HAVE EXEMPTED THE FIRST COLUMN AS THE FIRST COLUMN FOR ALL ARE THE HEADERS AND WE DID NOT WANTED IT COLLABERATED IN OUR LIST OF UNIQUE VALUES.
+
+###  OUTPUT
+### SOME OUTPUTS ARE TOO LONG TO PUT IN HERE SO AVOIDING THOSE, I AM PRINTING THE REST:
+|FIELD_NAME | UNIQUE_ VALUES |
+|-----------|----------------|
+|VENDOR_ID  | {'VTS', 'CMT'} |
+|RATE_CODE  | {'1', '3', '4', '0', '210', '9', '5', '6', '8', '2', '77'} |
+| store_and_fwd_flag|{'N', '', 'Y'}|
+| passenger_count |{'1', '4', '3', '0', '5', '6', '8', '208', '2'} |
+
+# SEVENTH QUESTION:
+
+IN ORDER TO SOLVE THIS QUESTION WE FIRST HAVE TO MAKE A LIST OF COLUMNS CONTAINING EVERY OTHER FIELD EXCEPT FOR THE LATTITUDES AND THE LONGITUDES.
+
+
+```python
+ for i,line in enumerate(reader):
+        rate_code.append(line[3])
+        passenger_count.append(line[7])
+        trip_distance.append(line[9])
+        trip_in_sec.append(line[8]
+```
+
+
+### REST OF THE FIELDS ARE STRING VARIABLE SO FINDING MINIMUM AND MAXIMUM OF THESE VARIABLES IS NOT POSSIBLE. Except their length can be compared. 
+
+
+### Now, we must remember that to perform any operation, it must be converted to either ***int type*** or *** float type** depending on the values.
+
+``` python
+    rate_code =[int(i) for i in rate_code[1:]]
+    passenger_count=[int(i) for i in passenger_count[1:]]
+    trip_in_sec=[int(i) for i in trip_in_sec[1:]]
+    trip_distance=[float(i) for i in trip_distance[1:]]
+```
+
+### This particular code converts entire list of trip_distance into float type as it should be a float type. Rest all contain int values
+
+### An interesting point to note here is that the headers rows are removed because we cannot convert string into float. (rate_code[1:])
+
+
+After this particular step, we have to initialise min and max at the first value of each coulumn so that we can check and then later change the values by going through in a loop. By doing this, we can get minimum and maximum values of all fields. 
+
+```python
+    minrate=rate_code[0]
+    maxrate=rate_code[0]
+    for x in rate_code[1:]:
+        if(minrate > rate_code[count]& minrate!=0):
+            minrate=rate_code[count]
+            id1=count
+        if(maxrate < rate_code[count]):
+            maxrate=rate_code[count]
+            id2=count
+        count=count+1
+    print(minrate)
+    print(maxrate)
+```
+### OUTPUT (FOR ONLY RATE_CODE)
+
+1
+120
+
+### the same could be done for rest three variables.
+
+### ALTERNATIVE METHOD:
+
+COULD HAVE FOUND THE UNIQUE VALUES AND THEN SEARCHED FOR MIN AND MAXIMUM VALUES.
+
+```python
+for i,line in enumerate(reader):
+        rate_code.append(line[3])
+    unique_words_rate_code=set(rate_code[1:])
+    print(unique_words_rate_code)
+    for value in range(0,len(unique_words_rate_code)):
+         print(unique_words_rate_code[value], end='')
+```
+
+# EIGHTH QUESTION
+
+IN THIS QUESTION, WE HAVE TO FIND THE AVERAGE NUMBER OF PASSENGERS EACH HOUR OF THE DAY.
+
+SO, AFTER APPENDING THE ROWS NEEDED AND CHANGING IT INTO INTEGER FORMAT( TRIP_TIME _IN_SEC, PASSENGER_COUNT), WE HAVE TO KEEP IN MIND TO CHANGE EVERY TRIP TIME IN SECOND TO HOURS.
+```python
+    for i,line in enumerate(reader):
+        passenger_count.append(line[3])
+        trip_in_sec.append(line[8])
+    passenger_count =[int(i) for i in passenger_count[1:]]
+    trip_in_sec =[int(i) for i in trip_in_sec[1:]]
+```
+### CHANGING TIME FROM SEC TO HOURS.
+WE SHOULD DIVIDE EVERY VALUE BY 3600.
+```python
+  for x in trip_in_sec[1:]:
+        value=trip_in_sec[count]/sec
+        trip_in_hour.append(value)
+        count=count+1
+```
+WE HAVE CREATED ***TRIP_IN_HOUR*** THAT CONTAINS TIME IN HOURS
+
+NOW, FINDING AVERAGE NUMBER OF PASSENGER EVERY HOUR BY DIVING NUMBER OF PASSENGER BY NUMBER OF HOURS.
+
+```python
+  for x in range(1,len(passenger_count[1:])):
+        try:
+            value=passenger_count[count2]/trip_in_hour[count2]
+        except:ZeroDivisionError
+        sum=sum+value
+        count2=count2+1
+    print(sum) 
+```
+### BECAUSE IN HERE SOME VALUES ARE 0 SUE TO INCORRECT DATA, WE HAD TO DO EXCEOPTION HANDLING FOR ZERO ERRROR.
+
+NOW, WE FING AVERAGE NUMBER OF PASSENGER FOR EVERY HOUR BY INITIALISING AN HOUR LIST AND FINDING THE AVERAGE FOR ALL.
+
+```python 
+for i in hour:
+        average.append((sum/len(passenger_count[1:]))*i)
+    print(average)
+```
+NOW, TO PLOT WE USE PYPLOT LIBRARY AS DISCUSSED ABOVE.
+
+```python
+    plt.plot(hour,average,color='red', marker='o')
+    plt.title('average number of passenger per hour', fontsize=12)
+    plt.xlabel('hour', fontsize=14)
+    plt.ylabel('number of passenger', fontsize=14)
+    plt.grid(True)
+    plt.show()
+```
+![image](https://user-images.githubusercontent.com/38343820/110379648-1bc38d80-807d-11eb-8c22-87b58fb2fc44.png)
