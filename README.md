@@ -31,7 +31,7 @@
 
 THERE CERTAINLY ARE MANY WAYS WHICH CAN BE USED TO READ A FILE:
 - LOADING THE WHOLE DATASET INTO MEMORY.
-  
+
   
   ```python
    with open("name_of_csv.csv") as f:
@@ -294,9 +294,18 @@ After this particular step, we have to initialise min and max at the first value
     max_pickup=[max_pickup_lattitude,max_pickup_longitude]
  ```
 
+
+
 ![image](https://user-images.githubusercontent.com/38343820/110364097-60452e00-8069-11eb-867d-bebea3415b12.png)
 
 ### Website used to know the location:
 [Website to know the location][https://www.gps-coordinates.net/]
 
- 
+ ![image](https://user-images.githubusercontent.com/38343820/110365687-51f81180-806b-11eb-9756-c42c4d730e7d.png)
+![image](https://user-images.githubusercontent.com/38343820/110365281-ddbd6e00-806a-11eb-8400-0f1db4d278d3.png)
+
+# The same goes for dropoff longitudes and lattitude.
+
+    min_dropoff=[40.908452,-74.405731]
+    max_dropoff=[40.649765,-73.460228]
+    
