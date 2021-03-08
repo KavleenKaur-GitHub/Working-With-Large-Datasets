@@ -1,5 +1,5 @@
 # Assignment-4
-### In this assignment, we were provide with the task of analyzing a ***large dataset*** which contained the information about ***taxi rides in NYC***. In order to achieve the given task, there certainly were some challenges which are explained here along with every single task description. 
+### In this assignment, we were provided with the task of analyzing a ***large dataset*** which contained the information about ***taxi rides in NYC city***. In order to achieve the given task, there certainly were some challenges which are explained here along with every single task description. 
 
 
 # TABLE OF CONTENT
@@ -27,4 +27,40 @@
   - Repeat step 8 with the reduced dataset and compare the two charts.
 
 
-#
+### SOMETHING THAT HOLDS TRUE FOR ALL THE ABOVE QUESTION IS THE STRATERGY USED TO READ SUCH A LARGE DATASET. 
+
+THERE CERTAINLY ARE MANY WAYS WHICH CAN BE USED TO READ A FILE:
+- LOADING THE WHOLE DATASET INTO MEMORY.
+  
+  
+  ```python
+   with open("name_of_csv.csv") as f:
+          data=[{k:str(v) for k,v in row.items()}
+          for row in csv.DictReader(f,skipinitialspace=True}]
+   ```
+   
+### But being a file more than 2.5 GB,it is more than unlikely that this method is best. The amount od time taken by this script coud be huge for a file this large
+
+
+- USING PANDAS:
+
+
+```python
+  import pandas as pd 
+  df=pd.read('name_of_the file.csv')
+   ```
+ ### But being a file more than 2.5 GB,it is more than unlikely that this method is best. Pandas is though very efficient library but even it fails to work on large datasets.
+   
+- PROCESSING THROUGH THE DISC ITSELF.
+
+### The only method efficient enough is this method right here. This method is the method that we will be using to answer the above questions. It allows us to read and work on the data line by line which is very beneficial as it loads only one line into the memory at a time. 
+
+```python
+ import csv
+ with open('trip_data_6.csv') as f:
+   reader=csv.reader(f)
+   ```
+# FIRST QUESTION:
+
+
+
