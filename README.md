@@ -279,10 +279,10 @@ After this particular step, we have to initialise min and max at the first value
 ```
 ### The same can be done for the rest three
 
-### FOR GEETING THE CORRESPONDING LONGITUDE:
+### For getting ***corresponding lattitudes and longitude***:
 
 ```python
-   max_pickup_lattitude=line[4752898].split(",")[12]
+    max_pickup_lattitude=line[4752898].split(",")[12]
     max_pickup_longitude=line[4752898].split(",")[13]
     print(max_pickup_lattitude) #max lattitude
     print(max_pickup_longitude)
@@ -293,5 +293,10 @@ After this particular step, we have to initialise min and max at the first value
     min_pickup=[min_pickup_lattitude,min_pickup_longitude]
     max_pickup=[max_pickup_lattitude,max_pickup_longitude]
  ```
- 
+
+![image](https://user-images.githubusercontent.com/38343820/110364097-60452e00-8069-11eb-867d-bebea3415b12.png)
+
+### Website used to know the location:
+[Website to know the location][https://www.gps-coordinates.net/]
+
  
