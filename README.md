@@ -302,7 +302,7 @@ After this particular step, we have to initialise min and max at the first value
 [Website to know the location][https://www.gps-coordinates.net/]
 
 ![image](https://user-images.githubusercontent.com/38343820/110365687-51f81180-806b-11eb-9756-c42c4d730e7d.png)
-![image](https://user-images.githubusercontent.com/38343820/110365281-ddbd6e00-806a-11eb-8400-0f1db4d278d3.png)
+![image](https://user-images.githubusercontent.com/38343820/110371542-211bda80-8073-11eb-8fd0-48af109f8420.png)
 
 ### The same goes for dropoff longitudes and lattitude.
 
