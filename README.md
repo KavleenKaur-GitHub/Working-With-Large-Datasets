@@ -301,7 +301,7 @@ After this particular step, we have to initialise min and max at the first value
 ### Website used to know the location:
 [Website to know the location][https://www.gps-coordinates.net/]
 
- ![image](https://user-images.githubusercontent.com/38343820/110365687-51f81180-806b-11eb-9756-c42c4d730e7d.png)
+![image](https://user-images.githubusercontent.com/38343820/110365687-51f81180-806b-11eb-9756-c42c4d730e7d.png)
 ![image](https://user-images.githubusercontent.com/38343820/110365281-ddbd6e00-806a-11eb-8400-0f1db4d278d3.png)
 
 ### The same goes for dropoff longitudes and lattitude.
@@ -330,3 +330,7 @@ Now, we use pyplot to plot a graph. the color attribute soecifies the color of t
 ```
 # The rest are plotted the same.
 # The graphs are as follows.
+![geographical range of pick_up lattitude](https://user-images.githubusercontent.com/38343820/110370110-4a3b6b80-8071-11eb-8d0e-00d655dbdec3.png)
+![GEOGRAPHICAL RANGE OF PICK_UP LONGITUDE](https://user-images.githubusercontent.com/38343820/110370119-4dcef280-8071-11eb-920a-95ea0d620ade.png)
+![GEOGRAPHICAL RANGE OF DROP_OFF Lattitude](https://user-images.githubusercontent.com/38343820/110370151-57f0f100-8071-11eb-9117-4e9915a91582.png)
+![GEOGRAPHICAL RANGE OF DROPOFF LONGITUDE](https://user-images.githubusercontent.com/38343820/110370167-5b847800-8071-11eb-9bd2-c96ca3c37c96.png)
