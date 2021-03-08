@@ -304,8 +304,29 @@ After this particular step, we have to initialise min and max at the first value
  ![image](https://user-images.githubusercontent.com/38343820/110365687-51f81180-806b-11eb-9756-c42c4d730e7d.png)
 ![image](https://user-images.githubusercontent.com/38343820/110365281-ddbd6e00-806a-11eb-8400-0f1db4d278d3.png)
 
-# The same goes for dropoff longitudes and lattitude.
+### The same goes for dropoff longitudes and lattitude.
 
     min_dropoff=[40.908452,-74.405731]
     max_dropoff=[40.649765,-73.460228]
     
+![image](https://user-images.githubusercontent.com/38343820/110368477-16f7dd00-806f-11eb-85b7-ad359baaf5b4.png)
+![image](https://user-images.githubusercontent.com/38343820/110368581-3e4eaa00-806f-11eb-9125-20efaa594c4a.png)
+
+### In order to plot, we need to iport the pyplot from matpolib. 
+```python
+import matplotlib.pyplot as plt
+```
+Now, we use pyplot to plot a graph. the color attribute soecifies the color of the line and marker shows the type of plot points used.Pytitle helps us to give title of pour graph. Plt.xlabel and plt.ylabel help us to label x and y axis.
+
+```python
+    min_pickup=[min_pickup_lattitude,min_pickup_longitude]
+    max_pickup=[max_pickup_lattitude,max_pickup_longitude]
+    plt.plot(min_pickup,max_pickup,color='red', marker='o')
+    plt.title('GEOGRAPHICAL RANGE OF PICK_UP LATTITUDE', fontsize=12)
+    plt.xlabel('MIN', fontsize=14)
+    plt.ylabel('MAX', fontsize=14)
+    plt.grid(True)
+    plt.show()
+```
+# The rest are plotted the same.
+# The graphs are as follows.
