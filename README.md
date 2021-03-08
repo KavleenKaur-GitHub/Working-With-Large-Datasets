@@ -100,3 +100,131 @@ This particular task is fairly easy as we just had to place a counter***inside t
 ### The result are as follows:
 
 ### Total number of rows in this particular dataset are 14385457
+
+
+# SECOND QUESTION:
+
+In order to find the field name, we just have to use the above concept.In this, instead of printing the first line, we have to print the heeder line which is indexed at 0. In order to print in a proper column format, we can use looping to print every column in the row. Apart from this, for proper presentation, we can add count too in the loop.
+
+```python
+count=1
+with open('trip_data_6.csv') as f:
+    reader=csv.reader(f)
+    line=f.read().splitlines()
+    fieldnames=line[0]
+    names=fieldnames.split(",")
+    print("NUMBER| FIELD NAME")
+    for fields in names:
+        print(" " " " " " " " " " "{}|{}".format(count,fields))
+        count=count+1
+ ```
+ ### The result are as follows:
+ 
+ |  COLUMN NUMBER   |    FIELD NAME  | 
+|-----------------|-----------------| 
+|     1             |  medallion    |
+|     2             | hack_license   |
+|     3             | vendor_id      |
+|     4             | rate_code      |
+|     5             | store_and_fwd_flag|
+|     6             | pickup_datetime |
+|     7             | dropoff_datetime |
+|     8             | passenger_count |
+|     9             | trip_time_in_secs |
+|     10            | trip_distance   |
+ |    11            | pickup_longitude |
+|     12            | pickup_latitude |
+|     13            | dropoff_longitude |
+|     14            | dropoff_latitude | 
+
+
+# python output
+
+     1|medallion
+     2| hack_license
+     3| vendor_id
+     4| rate_code
+     5| store_and_fwd_flag
+     6| pickup_datetime
+     7| dropoff_datetime
+     8| passenger_count
+     9| trip_time_in_secs
+     10| trip_distance
+     11| pickup_longitude
+     12| pickup_latitude
+     13| dropoff_longitude
+     14| dropoff_latitude
+     
+# DESCRIPTION:
+- ***medallion:*** It refers to the tranferrable permit of the taxi driver driving that particular vehicle.
+- ***hack_license:*** It refers to the licence of the driver of the cab that allows the person to drive a car for hire.
+- ***vendor_id:*** It refers to the vendor id.e.g.,Verifone Tranfortation System(VTS) or Mobile Knowledge System Inc(CMS)
+- ***rate_code:*** It refers to the taximeter rate
+- ***store_and_fwd_flag:*** It refers to whether a cab has a flag in its front or not(Y/N).
+- ***pickup_datetime:*** It refers to date and time when the cab picked up the passenger.
+- ***dropoff_datetime:*** It refers to date and time when the cab dropped off the passenger.
+- ***passenger_count:*** It refers to the amount of passengers onboard the vehicle.
+- ***trip_time_in_secs:*** It refers to the amount of time calculated in seconds by the cab to pickup a passenger and then drop off the passenger. 
+- ***trip_distance:***  It refers to the distance calculated to pickup a passenger and then drop off the passenger.
+- ***pickup_longitude:*** It refers to the longitude of the place where the cab picked up the passenger
+- ***pickup_latitude:*** It refers to the lattitude of the place where the cab picked up the passenger
+- ***dropoff_longitude:*** It refers to the longitude of the place where the cab dropped off the passenger
+- ***dropoff_latitude:*** It refers to the lattitude of the place where the cab dropped off the passenger
+
+
+# THIRD QUESTION
+
+In order to find some sample data, we just have to print few lines. For this purpose, we will use ***range*** function that will help us print first few rows.
+
+
+```python
+  for i in range(10):
+        line=f.readline()
+        print(line)
+```
+
+### FEW OUTPUTS OF THE CODE ARE GIVEN BELOW :
+
+medallion, hack_license, vendor_id, rate_code, store_and_fwd_flag, pickup_datetime, dropoff_datetime, passenger_count, trip_time_in_secs, trip_distance, pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude
+D1C79CF706C80D3A1DC7FBCA6CD56E43,DAC7742E8F00034774098DBC6B4FF2B7,CMT,1,N,2013-06-03 00:02:12,2013-06-03 00:10:07,1,474,1.30,-73.981583,40.773529,-73.981827,40.782124
+3567E8B49FEBFCBB587F1864D723D5C8,430B8022563CDE1D51D44786DFD8D6CB,CMT,1,N,2013-06-03 00:03:03,2013-06-03 00:19:27,1,982,4.90,-73.999565,40.728367,-73.952927,40.729546
+4220E1995D36A40DF34664AD33ED13F6,48A1C9C9300AFC7BDBB718CE308EE45A,CMT,2,N,2013-06-03 00:01:30,2013-06-03 00:28:11,1,1745,17.70,-73.788445,40.641151,-73.985451,40.744194
+440900089FF528A873424DED689C77A3,E6A63B40E565A8A03AF32E0B138F5EB1,CMT,1,N,2013-06-03 00:04:14,2013-06-03 00:27:50,1,1415,12.10,-73.862816,40.768875,-74.008797,40.738842
+16129167D9E7B0846DBA3D04B78E1B8D,227A03FC03CF429DFC9EAFF0AE8BA579,CMT,1,N,2013-06-03 00:04:53,2013-06-03 00:10:46,1,353,1.10,-73.964905,40.806881,-73.962349,40.794987
+
+
+  
+### IN THIS, THE FIELDS NAMES AND THEIR VALUES IN EACH ROW ARE ARE SEPERATED BY COMMA'S. SO, IT IS FAIRLY EASY TO MAP THE FILED NAMES WITH THER VALUES.
+
+
+| medallion| hack_license| vendor_id| rate_code |store_and_fwd_flag |pickup_datetime | dropoff_datetime|passenger_count| trip_time_in_secs|trip_distance| pickup_longitude|pickup_latitude |dropoff_longitude|dropoff_latitude|  
+| ---------| --------|--------|------- |--------- |-------- | ---------|-------| ---------|--------| --------|------- |---------|-----------| 
+| D1C79CF706C80D3A1DC7FBCA6CD56E43|DAC7742E8F00034774098DBC6B4FF2B7|CMT|1|N|2013-06-03 00:02:12|2013-06-03 00:10:07|1|474|1.30|-73.981583|40.773529|-73.981827|40.782124|
+|3567E8B49FEBFCBB587F1864D723D5C8|430B8022563CDE1D51D44786DFD8D6CB|CMT|1|N|2013-06-03 00:03:03|2013-06-03 00:19:27|1|982|4.90|-73.999565|40.728367|-73.952927|40.729546|
+|4220E1995D36A40DF34664AD33ED13F6|48A1C9C9300AFC7BDBB718CE308EE45A|CMT|2|N|2013-06-03 00:01:30|2013-06-03 00:28:11|1|1745|17.70|-73.788445|40.641151|-73.985451|40.744194 |
+
+
+# FOURTH QUESTION:
+
+| FIELD NAME| DATATYPE|SIZE|REASONS |
+|-----------|---------|-------|-------|
+| medallion| VARCHAR| 50| VARCHAR BECAUSE IT IS A COMBINATION OF BOTH NUMBER AND CHARACTER AND THE SIZE IS 50 BECAUSE IT IS APPRX 50 LETTERS LONG |
+|hack_license|VARCHAR|50| VARCHAR BECAUSE IT IS A COMBINATION OF BOTH NUMBER AND CHARACTER AND THE SIZE IS 50 BECAUSE IT IS APPRX 50 LETTERS LONG |
+|vendor_id|VARCHAR |4|VARCHAR BECAUSE IT IS CHAR AND THE SIZE IS 4 BECAUSE IT IS APPRX 3 CHARACTER LONG BUT JUST TO BE SAFE, IT SHOULD BE 4| 
+|rate_code |INT |2| INT BECAUSE IT IS ONLY NUMBER AND THE SIZE IS 2 BECAUSE IT IS APPRX 1 NUMBER LONG BUT JUST TO BE SAFE, IT SHOULD BE 2|
+|store_and_fwd_flag |VARCHAR |2|VARCHAR BECAUSE IT IS CHAR AND THE SIZE IS 2 BECAUSE IT IS APPRX 1 CHARACTER LONG BUT JUST TO BE SAFE, IT SHOULD BE 2|
+|pickup_datetime | DATETIME| 25| DATTIME BECAUSE IT IS A DATETIME
+|dropoff_datetime|DATETIME| 25| DATTIME BECAUSE IT IS A DATETIME
+|passenger_count|INT |2| INT BECAUSE IT IS ONLY NUMBER AND THE SIZE IS 2 BECAUSE IT IS APPRX 1 NUMBER LONG BUT JUST TO BE SAFE, IT SHOULD BE 2|
+|trip_time_in_secs| INT |10| INT BECAUSE IT IS ONLY NUMBER AND THE SIZE IS 10 BECAUSE IT IS CALCULATED IN SECONDS|
+|trip_distance| DECIMAL| (4,7)| DECIMAL BECAUSE IT CONTAINS DECIMAL VALUES AND IS MAXIMUM 4 NUMBERS LONG FOLLOWED BY 7 DECIMAL POINTS|
+|pickup_longitude|DECIMAL| (4,7)| DECIMAL BECAUSE IT CONTAINS DECIMAL VALUES AND IS MAXIMUM 4 NUMBERS LONG FOLLOWED BY 7 DECIMAL POINTS|
+|pickup_latitude |DECIMAL| (4,7)| DECIMAL BECAUSE IT CONTAINS DECIMAL VALUES AND IS MAXIMUM 4 NUMBERS LONG FOLLOWED BY 7 DECIMAL POINTS|
+|dropoff_longitude|DECIMAL| (4,7)| DECIMAL BECAUSE IT CONTAINS DECIMAL VALUES AND IS MAXIMUM 4 NUMBERS LONG FOLLOWED BY 7 DECIMAL POINTS|
+|dropoff_latitude| DECIMAL| (4,7)| DECIMAL BECAUSE IT CONTAINS DECIMAL VALUES AND IS MAXIMUM 4 NUMBERS LONG FOLLOWED BY 7 DECIMAL POINTS| 
+
+### IN THIS QUESTION, THE MOST IMPORTANT POINT TO NOTE WOULD BE THAT WHEN WE PUT THESE VALUES INTO A SQL DATABASE, ONE PROBLEM THAT COULD OCCUR IS THAT THE DATETIME WOULD NOT BE IN TAKEN IN DESIRED FORMAT. SO, WE WOULD LIKE TO IMPORT DATETIME IN ORDER TO CONVERT INTO THE DESIRED FORMAT.  
+
+
+# FIFTH QUESTION
+     
