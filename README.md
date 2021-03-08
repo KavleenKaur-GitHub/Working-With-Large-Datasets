@@ -1,5 +1,5 @@
 # Assignment-4
-### In this assignment, we were provided with the task of analyzing a ***large dataset*** which contained the information about ***taxi rides in NYC city***. In order to achieve the given task, there certainly were some challenges which are explained here along with every single task description. 
+### In this assignment, we were provided with the task of analyzing a ***large dataset*** which contained the information about ***taxi rides in NYC***. In order to achieve the given task, there certainly were some challenges which are explained here along with every single task description. 
 
 
 # TABLE OF CONTENT
@@ -228,7 +228,7 @@ D1C79CF706C80D3A1DC7FBCA6CD56E43,DAC7742E8F00034774098DBC6B4FF2B7,CMT,1,N,2013-0
 
 # FIFTH QUESTION
      
-### IN ORDER TO FIND MAXIMUM AND MINIMUN RANGE OF LATTITUDES, WE HAVE CONSIDER TO CONSIDER THAT ACCORDING TO WEBSITE GIVEN BELOW, THE RANGE OF LATTITUDE AND LONGITUDE OF NYC CITY ARE AS FOLLOWS:
+### IN ORDER TO FIND MAXIMUM AND MINIMUN RANGE OF LATTITUDES, WE DO NEED SOME FACTS. SO, ACCORDING TO THE WEBSITE GIVEN BELOW, THE RANGE OF LATTITUDE AND LONGITUDE OF NYC ARE AS FOLLOWS:
 
 
 ### GPS COORDINATE:
@@ -238,3 +238,60 @@ D1C79CF706C80D3A1DC7FBCA6CD56E43,DAC7742E8F00034774098DBC6B4FF2B7,CMT,1,N,2013-0
 [WEBSITE FOR INFORMATION][https://inkplant.com/code/state-latitudes-longitudes]
 ### SO, THE RANGE OF MINIMUM AND MAXIMUM MUST LIE WITHIN IT.
 
+
+IN ORDER TO SOLVE THIS QUESTION WE FIRST HAVE TO MAKE A LIST OF COLUMNS CONTAINING THE LATTITUDES AND THE LONGITUDES.
+
+```python
+ for i,line in enumerate(reader):
+        picklat.append(line[11])
+        picklong.append(line[10]) 
+        droplat.append(line[13])
+        droplong.append(line[12])
+```
+
+### Now, we must remember that to perform any operation, it must be converted to either ***int type*** or *** float type** depending on the values.
+
+``` python
+    picklat = [float(i) for i in picklat[1:]]
+    picklong = [float(i) for i in picklong[1:]]
+    droplat = [float(i) for i in droplat[1:]]
+    droplong = [float(i) for i in droplong[1:]]
+```
+This particular codew converts entire list of lattitudes and longitudes into float type.
+
+### An interesting point to note here is that the headers rows are removed because we cannot convert string into float. (picklat[1:])
+
+
+After this particular step, we have to initialise min and max at the first value of each coulumn so that we can check and then later chnge the values. By doing this, we can get id (index number) of the line. From the line, we can get the corresponding lattitude or longitude and then use a website to see which place has the minimum lattitude or the minimum longitude. But we have to bear in mind that we have to do this for four columns-pickup_lattitude,pickup_longitude,dropoff_lattitude and drop_off longitude.
+```python
+    minpicklat=picklat[0]
+    maxpicklat=picklat[0]
+    for x in picklat[1:]:
+        if(minpicklat > picklat[count]):
+            minpicklat=picklat[count]
+            id1=count
+        if(maxpicklat < picklat[count]):
+            maxpicklat=picklat[count]
+            id2=count
+        count=count+1
+    print(id1)
+    print(id2)
+```
+### The same can be done for the rest three
+
+### FOR GEETING THE CORRESPONDING LONGITUDE:
+
+```python
+   max_pickup_lattitude=line[4752898].split(",")[12]
+    max_pickup_longitude=line[4752898].split(",")[13]
+    print(max_pickup_lattitude) #max lattitude
+    print(max_pickup_longitude)
+    min_pickup_lattitude=line[14310378].split(",")[12]
+    min_pickup_longitude=line[14310378].split(",")[13]
+    print(min_pickup_lattitude) #min lattitude
+    print(min_pickup_longitude)
+    min_pickup=[min_pickup_lattitude,min_pickup_longitude]
+    max_pickup=[max_pickup_lattitude,max_pickup_longitude]
+ ```
+ 
+ 
