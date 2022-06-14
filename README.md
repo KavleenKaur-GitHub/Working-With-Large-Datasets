@@ -1,5 +1,5 @@
-# Assignment-4
-### In this assignment, we were provided with the task of analyzing a ***large dataset*** which contained the information about ***taxi rides in NYC***. In order to achieve the given task, there certainly were some challenges which are explained here along with every single task description. 
+# Woeking with Large Dataset
+### In this , we were provided with the task of analyzing a ***large dataset*** which contained the information about ***taxi rides in NYC***. In order to achieve the given task, there certainly were some challenges which are explained here along with every single task description. Also, will look at some questions to be answered while working with this big dataset. 
 
 
 # TABLE OF CONTENT
